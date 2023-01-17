@@ -3,7 +3,6 @@ package com.houssem.Dimassi_Informatique.ApiControlleur;
 import java.io.IOException;
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
