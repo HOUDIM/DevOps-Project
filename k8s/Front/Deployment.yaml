@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: Dimassi-Informatique-frontend
+spec:
+  selector:
+    matchLabels:
+      app: Dimassi-Informatique-frontend
+  replicas: 5
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: Dimassi-Informatique-frontend
+    spec:
+      containers:
+        - name: Dimassi-Informatique-frontend
+          image: houssemdimassi/frontend:2
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+      - name: regcred
