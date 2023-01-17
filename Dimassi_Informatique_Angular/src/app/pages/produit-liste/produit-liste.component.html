@@ -1,0 +1,83 @@
+<div
+  class="page-header"
+  style="background-image: url('./assets/img/clark-street-mercantile.jpg')"
+>
+  <div class="filter"></div>
+  <div class="content-center">
+    <div
+      class="container text-center"
+      style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 3;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        width: 100%;
+        overflow-x: hidden;
+      "
+    >
+      <h1 style="color: white">Bienvenue</h1>
+      <h3 style="color: white">
+        Dimassi Informatique
+      </h3>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div id="navbar-dropdown">
+    <div class="navbar navbar-expand-md navbar-default">
+      <div class="container">
+        <h3 class="navbar-brand">SousCategories</h3>
+
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <div
+            _ngcontent-yds-c5=""
+            class="col-md-6 col-sm-6 nav-item"
+            style="align-items: flex-end"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section latest-offers">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4" *ngFor="let p of produits">
+          <div class="card card-product card-plain">
+            <div class="card-image">
+              <a href="javascript:void(0)" routerLink="/produit/{{ p.id }}"
+                ><img
+                  alt="Rounded Image"
+                  class="img-rounded img-responsive"
+                  src="http://localhost:8081/api/produit/Image/{{ p.id }}"
+              /></a>
+              <div class="card-body">
+                <div class="card-description">
+                  <h5 class="card-title">
+                    <a routerLink="/list/{{ p.id }}">{{ p.nom }}</a>
+                  </h5>
+                  <p class="card-description">
+                    <span class="text-danger" *ngFor="let c of p.sousCategories">{{
+                      c.nom
+                    }}</span>
+                  </p>
+                  <p class="card-description">
+                    {{ p.description }}
+                  </p>
+                </div>
+                <div class="prix">
+                  <h5>{{ p.prix }} DT</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

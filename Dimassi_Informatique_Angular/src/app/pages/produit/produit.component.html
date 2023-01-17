@@ -1,0 +1,97 @@
+<div class="wrapper">
+  <div
+    class="page-header page-header-xs"
+    style="
+      background-image: url('./assets/img/clark-street-mercantile.jpg');
+    "
+  >
+    <div class="filter"></div>
+  </div>
+  <div class="main">
+    <div class="section">
+      <div class="container">
+        <div class="row title-row">
+          <div class="col-md-2">
+            <h4 class="shop">Shop</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-7 col-sm-6">
+            <div class="ml-auto mr-auto" id="carousel">
+              <div class="card page-carousel">
+                <ngb-carousel
+                  class="carousel slide"
+                  tabindex="0"
+                  style="display: block"
+                >
+                  <ng-template ngbSlide>
+                    <img
+                      src="http://localhost:8081/api/produit/Image/{{
+                        produit.id
+                      }}"
+                      alt="Random first slide"
+                      class="d-block img-fluid"
+                    />
+                  </ng-template>
+                  <ng-template ngbSlide [ngIf]="photos.photo2 != null">
+                    <img
+                      src="http://localhost:8081/api/produit/getImage2/{{
+                        produit.id
+                      }}"
+                      alt="Random second slide"
+                    />
+                  </ng-template>
+                  <ng-template ngbSlide [ngIf]="photos.photo3 != null">
+                    <img
+                      src="http://localhost:8081/api/produit/getImage3/{{
+                        produit.id
+                      }}"
+                      alt="Random third slide"
+                    />
+                  </ng-template>
+                  <ng-template ngbSlide *ngIf="photos.photo4 != null">
+                    <img
+                      src="http://localhost:8081/api/produit/getImage4/{{
+                        produit.id
+                      }}"
+                      alt="Random third slide"
+                    />
+                  </ng-template>
+                </ngb-carousel>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 col-sm-6">
+            <h2>{{ produit.nom }}</h2>
+            <span class="text-danger" *ngFor="let c of produit.sousCategories">{{
+              c.name
+            }}</span>
+            <h4 class="price">
+              <strong>{{ produit.prix }} TD</strong>
+            </h4>
+            <hr />
+            <p>
+              {{ produit.description }}
+            </p>
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <h4>Quantite</h4>
+                <strong>{{ produit.quantite }}</strong>
+                <div class="form-group" style="margin-top: 10px">
+                 
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-md-7 offset-md-5 col-sm-8">
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
