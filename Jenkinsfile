@@ -21,10 +21,10 @@ pipeline {
 
          stage('Frontend') {
             agent any
-            //  when {
-            //     changeset "**/Dimassi_Informatique_Angular/**"
-            //     beforeAgent true
-            // }
+             when {
+                changeset "**/Dimassi_Informatique_Angular/**"
+                beforeAgent true
+            }
 
             steps {
                 dir('Dimassi_Informatique_Angular'){
