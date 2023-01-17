@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: Dimassi-Informatique-fService
+    app: dimassi-informatique-fservice
   name: front
 spec:
   ports:
   - port: 80
   selector:
-    service: Dimassi-Informatique-frontend
+    service: dimassi-informatique-frontend
   type: LoadBalancer
