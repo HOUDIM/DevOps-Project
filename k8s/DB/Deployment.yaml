@@ -13,6 +13,21 @@ spec:
     app: postgres
     tier: database
   clusterIP: None
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pv-claim 
+  labels:
+    app: postgres
+    tier: database
+spec:
+  accessModes:
+    - ReadWriteOnce   
+  resources:
+    requests:
+      storage: 1Gi    
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,7 +50,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres
+          image: postgres:alpine
           env:
             - name: POSTGRES_DB 
               valueFrom:
