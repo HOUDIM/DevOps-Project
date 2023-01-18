@@ -37,10 +37,10 @@ pipeline {
         }
         stage('Backend') {
             agent any
-            when {
-                changeset "**/Dimassi_Informatique/**"
-                beforeAgent true
-            }
+//            when {
+  //              changeset "**/Dimassi_Informatique/**"
+    //            beforeAgent true
+     //       }
             steps {
                 dir('Dimassi_Informatique'){
                     sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/backend:$BUILD_ID .'

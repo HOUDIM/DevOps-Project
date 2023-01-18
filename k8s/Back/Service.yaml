@@ -6,7 +6,7 @@ metadata:
   name: backend
 spec:
   ports:
-  - port: 8090
+  - port: 8081
   selector:
     service: dimassi-informatique-backend
   type: LoadBalancer
