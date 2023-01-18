@@ -19,5 +19,3 @@ spec:
           image: houssemdimassi/frontend:2
           ports:
             - containerPort: 80
-      imagePullSecrets:
-      - name: regcred
