@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-conf
+data:
+  host: postgres
+  name: DimassiInformatique
+  postgres_user: postgres
+  postgres_password: root

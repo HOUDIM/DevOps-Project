@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: dimassi-informatique-backend-service
+  name: backend
+spec:
+  ports:
+  - port: 8090
+  selector:
+    service: dimassi-informatique-backend
+  type: LoadBalancer

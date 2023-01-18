@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: dimassi-informatique-backend
+spec:
+  selector:
+    matchLabels:
+      app: dimassi-informatique-backend
+  replicas: 5
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: dimassi-informatique-backend
+    spec:
+      containers:
+        - name: dimassi-informatique-backend
+          image: houssemdimassi/backend:3
+          ports:
+            - containerPort: 8090 
+          env:   # Setting Enviornmental Variables
+            - name: DB_HOST   # Setting Database host address from configMap
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-conf  # name of configMap
+                  key: host
+            - name: DB_NAME  # Setting Database name from configMap
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-conf
+                  key: name
+            - name: POSTGRES_USER  # Setting Database username from Secret
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-conf # Secret Name
+                  key: postgres_user
+            - name: POSTGRES_PASSWORD # Setting Database password from Secret
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-conf
+                  key: postgres_password
